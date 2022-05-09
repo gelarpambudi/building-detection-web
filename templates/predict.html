@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='predictstyle.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <title> Druma </title>
+</head>
+<body>
+  <header class="showcase">
+    <p>
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <script>
+            var messages = {{ messages | safe }};
+            for (var i=0; i<messages.length; i++) {
+                alert(messages[i]);
+            }
+          </script>
+          {% endif %}
+      {% endwith %}
+    </p>
+    <div class="link">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('predict') }}">Predict</a></li>
+        <li><a href="{{ url_for('results') }}">Results</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <img src="{{ url_for('static', filename='logodruma.png') }}" class="cobalogo" alt="Druma">
+      </ul>
+    </div>
+  </header>
+  <div class="upload">
+    <form method="post" action="" enctype="multipart/form-data">
+    <div class="drag-area">
+      <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      <header>Click Here to Choose File</header>
+      <button type="button">Browse File</button>
+    </div>
+
+      <input class="input_file" type="file" name="files" hidden required>
+      <script src="{{ url_for('static', filename='druma.js') }}"> </script> 
+      <dl>
+          <p>
+              <input type="text" name="patch_size" placeholder="Patch Size (ex: 800)" class="input_form" required>
+          </p>
+      </dl>
+      <p>
+          <input type="submit" value="Upload" class="button" onclick="upload()">
+      </p>
+    </form>
+    <div id="loading"><img src="{{ url_for('static', filename='loading.gif') }}" alt="" /></div>
+    {% if filename %}
+        <!-- {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+	<br>
+	<br>
+	<br>
+        <div id="res_img">
+          <img src="{{ url_for('static', filename=img_path) }}" class="image">
+        </div> -->
+    {% endif %}
+  </div>
+  <footer class="center bg-dark">
+    <p>Druma &copy; 2021</p>
+  </footer>
+</body>
+</html>

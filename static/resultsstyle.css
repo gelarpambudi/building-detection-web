@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+  padding:0;
+  background: rgba(36, 35,35, 0.9);
+  color: rgb(255, 255, 255);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align:center;
+  align-items: center;
+  justify-content: center;
+}
+.upload{
+  background-color:rgba(127, 132, 59, 0.9);
+  min-height:100vh;
+  padding-top:100px;
+
+}
+.showcase {
+  z-index: 3;
+}
+ul {
+    list-style-type:none;
+    text-align:right;
+    margin-right:50px;
+  }
+
+ul li {
+    display: inline-block;
+    margin-top:0;
+  }
+
+ul li a{
+    text-decoration:none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.6s ease;
+  }
+ul li a:hover{
+    background-color:#fff;
+    color: #000;
+   }
+  
+.link .cobalogo {
+    height: 50px;
+    width: 30x;
+    float:left;
+    margin-top: -12px;
+  }
+.center {
+    text-align: center;
+    margin: auto;
+  }
+.bg-dark {
+    background: #333;
+    color: #f4f4f4;
+  }
+table#result_table{
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%; 
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 12px 12px 0 0;
+    padding-top: 100px;
+    margin-bottom: 200px;
+    display: block;
+    overflow-y: scroll;
+    max-height:800px;
+    min-width: 1000px;
+    top: 10;
+   }
+td , th{
+    padding: 7px 12px;
+    text-align: center;
+    font-size: 0.6em;
+    min-width: 75px;
+    max-width: 90px;
+    max-height: 55px;
+    
+   }
+th{
+    background-color: #333;
+    color: rgb(214, 241, 135);
+    font-family: 'Open Sans',Sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+   }
+tr{
+    width: 100%;
+    background-color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+   }
+
+footer {
+    padding: 1.0rem;
+    position: fixed;
+    margin-bottom: 0;
+  }
+  
+footer p {
+    margin: 0;
+  }
+
+  div#loading{
+    display: none;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 50px;
+  }
+
+  ::placeholder {
+    font-size: 0.9em;
+  
+  }
+
+canvas{
+  min-height: 60px;
+  display: block;
+}
+
+div#res_img{
+  width: 700px;
+  height: 700px;
+  margin-left: 50%;
+}
+
+#img_results{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.column {
+  float: left;
+  padding: 10px;
+  margin-top:5%;
+}
+.left{
+  float: left;
+  width:30%;
+}
+.cntr{
+  float: left;
+  width:15%;
+}
+.right{
+  float: left;
+  width: 10%;
+}
+
+div#lonlat_table{
+  position: absolute;
+  z-index: 0;
+  left: 395px;
+  transform: translate(-50%,-50%);
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 0 2px 15px rgba(64,64,64,.7);
+  border-radius: 12px 12px 0 0;
+  margin-top: 300px;
+  /* margin-bottom: 200px; */
+  display: block;
+  overflow-y: scroll;
+  max-height: 800px;
+  max-width: 600px;
+  /* overflow: auto; */
+ }
+
+ .sidenav {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: #333;
+  color: #f4f4f4;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #f4f4f4;
+  display: block;
+  padding-top: 10px;
+}
+
+.sidenav a:hover {
+  background-color:#fff;
+  color: #000;
+}
+
+.sidenav .cobalogo {
+  height: 45px;
+  width: 150px;
+  float:center;
+  margin-top: -12px;
+  margin-bottom: 10px;
+}
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

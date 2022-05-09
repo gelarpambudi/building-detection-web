@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='faqstyle.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title> Druma </title>
+</head>
+<body>
+  <header class="showcase">
+    <div class="link">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('predict') }}">Predict</a></li>
+        <li><a href="{{ url_for('results') }}">Results</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <img src="{{ url_for('static', filename='logodruma.png') }}" class="cobalogo" alt="Druma">
+      </ul>
+    </div>
+  </header>
+  <div class=green>
+    <div class="wrapper">
+      <!-- Accordion Heading One -->
+      <div class="parent-tab">
+        <input type="checkbox" name="tab" id="tab-1" checked>
+        <label for="tab-1">
+          <span>What is patch size?</span>
+          <div class="icon"><i class="fas fa-plus"></i></div>
+        </label>
+        <div class="content">
+          <p align="justify" >Patch size is a value that states how big the image is in the prediction process. 
+            When making a prediction, the image will be cropped to a smaller size for greater accuracy. 
+            For example, the value of the patch size is 800, then the cut of each image is 800 x 800 pixels. 
+            Note that the patch size value cannot exceed the predicted total pixel size of the image.</p>
+        </div>
+      </div>
+  
+      <!-- Accordion Heading Two -->
+      <div class="parent-tab">
+        <input type="checkbox" name="tab" id="tab-2">
+        <label for="tab-2">
+          <span>What AI model does the application use to detect building?</span>
+          <div class="icon"><i class="fas fa-plus"></i></div>
+        </label>
+        <div class="content">
+          <p align="justify">You can try changing the value of the patch size. 
+            This application uses Mask RCNN model for detecting the buildings in satellite images.
+            The model will extract the detected building and mark the position using bounding box. Then the application
+            will estimate the geolocation (longitude and latitued) of each building in the image and display the results.       </div>
+      </div>
+      <!-- Accordion Heading Three -->
+      <div class="parent-tab">
+        <input type="checkbox" name="tab" id="tab-3">
+        <label for="tab-3">
+          <span>What type of image should i use?</span>
+          <div class="icon"><i class="fas fa-plus"></i></div>
+        </label>
+        <div class="content">
+          <p align="justify">This application will accept TIFF (*.tif or *.tiff) image or raster as an input.
+            TIFF raster usually contains coordinate system information in the image. This information will help
+            the application to estimate the real world position of the detected buildings.     </div>
+      </div>	  
+    </div>
+  </div>
+  <footer class="center bg-dark">
+    <p>Druma &copy; 2021</p>
+  </footer>
+</body>
+</html>
+

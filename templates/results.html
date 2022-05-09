@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultsstyle.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <title> Druma </title>
+</head>
+<body>
+  <header class="showcase">
+    <p>
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <script>
+            var messages = {{ messages | safe }};
+            for (var i=0; i<messages.length; i++) {
+                alert(messages[i]);
+            }
+          </script>
+          {% endif %}
+      {% endwith %}
+    </p>
+    <div class="link">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('predict') }}">Predict</a></li>
+        <li><a href="{{ url_for('results') }}">Results</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        
+      </ul>
+    </div>
+  </header>
+
+  <div class="upload">
+
+    
+    <div class="sidenav">
+            <img src="{{ url_for('static', filename='logodruma.png') }}" class="cobalogo" alt="Druma">
+    {%- for item in tree %}
+            <div id=img_link><a href="{{ url_for('results', is_load_image=['True'], img_name=[item]) }}">{{ item }}</a></div>
+    {%- endfor %}
+    </div>
+    {% if load_image %}
+          <div id=lonlat_table>
+          {% for table in tables %}
+            {{ table|safe }}
+          {% endfor %}
+          </div>
+          <div id="res_img">
+            <img src="{{ url_for('static', filename=img_path) }}" id="img_results">
+          </div>
+    {% endif %}
+  </div>
+
+  <footer class="center bg-dark">
+    <p>Druma &copy; 2021</p>
+  </footer>
+
+</body>
+</html>
